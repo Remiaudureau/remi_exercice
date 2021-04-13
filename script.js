@@ -108,7 +108,7 @@ function reverseTab(tab) {
 
  }
 
-*/
+
 
 let tableau=Array()
 for(let j=0;j<10;j++){
@@ -121,3 +121,115 @@ var couleurs=["rouge","vert","jaune"]
 couleurs.forEach(function(couleur){
     console.log(couleur);
 });
+
+
+function div(num1,num2){
+    return num1/num2;}
+
+    try{
+        console.log(div(1,2))
+        console.log(div(1,0))
+    }catch (e){
+    console.log('error'+e);}
+    finally{
+        console.log("finish")
+    }
+*/
+
+/*var maVar ="ma valeur";
+(function(){
+    var maVar = "Valeur locale";
+    console.log(maVar);
+})();
+
+(function(){
+    var num1 = 3;
+    var num2 = 4;
+var machin = function(){
+    sum = num1 + num2;
+    return sum;
+}
+console.log(machin);
+})();
+
+(function(){
+   var soldes = "Toyata";
+   function carTypes(nom){
+       return (nom === "Honda") ?
+       nom : "Désolé, nous ne vendons pas de " + nom + ".";
+   }
+   var voiture = {
+       marque: "Toyota",
+       getVoiture: carTypes("Honda")
+   };
+
+   console.log(voiture.marque);
+   console.log(voiture.getVoiture);
+})();
+
+
+(function(){
+var arr = new Array();
+arr[0] = "val 1"
+arr[2] = "val 3"
+arr[4] = "val 5"
+for (var val of arr){
+    console.log("valeur :" + val);
+}
+for (var val in arr){
+    console.log("index :" + val);
+}
+console.log(arr.length)
+})();
+*/
+
+function documents(numEnreg,titre,livre,revue,Dictionnaire){
+    this.numEnreg=numEnreg;
+    this.titre=titre;
+    this.livre=livre;
+    this.revue=revue;
+    this.Dictionnaire=Dictionnaire;
+}
+
+function livre(numEnreg,titre,livre,revue,Dictionnaire,auteur,nbrpage){
+    documents.call(this,this,numEnreg,titre,livre,revue,Dictionnaire)
+    this.auteur=auteur;
+    this.nbrpage=nbrpage;
+}
+
+function revue(numEnreg,titre,livre,revue,Dictionnaire,mois,année){
+    documents.call(this,this,numEnreg,titre,livre,revue,Dictionnaire)
+    this.mois=mois;
+    this.année=année;
+}
+
+function dictionnaire(numEnreg,titre,livre,revue,Dictionnaire,langue){
+    documents.call(this,numEnreg,titre,livre,revue,Dictionnaire)
+    this.langue=langue;
+}
+
+function nbpage_livre(livre_number) { 
+    let nbr_de_page = livre_number.nbrpage;
+    if(nbr_de_page<100){
+        console.log("nombre de pages <100")
+    }
+    else if(nbr_de_page<200 && nbr_de_page>100){
+        console.log("nombre de pages 100<page<200")
+    }
+    else if(nbr_de_page<300 && nbr_de_page>200){
+        console.log("nombre de pages 200<page<300")
+    }
+    else {
+        console.log("nombre de pages 300<page")
+    }
+    
+  } 
+
+  livre.prototype=Object.create(documents.prototype)
+  revue.prototype=Object.create(documents.prototype)
+  dictionnaire.prototype=Object.create(documents.prototype)
+  
+  let livre1=new livre(12,'titre','name','revue','dict','alain',205)
+  console.log(livre1)
+console.log(nbpage_livre(livre1))
+
