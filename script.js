@@ -182,7 +182,7 @@ for (var val in arr){
 console.log(arr.length)
 })();
 */
-
+/*
 function documents(numEnreg,titre,livre,revue,Dictionnaire){
     this.numEnreg=numEnreg;
     this.titre=titre;
@@ -232,4 +232,96 @@ function nbpage_livre(livre_number) {
   let livre1=new livre(12,'titre','name','revue','dict','alain',205)
   console.log(livre1)
 console.log(nbpage_livre(livre1))
+*/
+
+function travailleur(salaireBrut,allocation,bonus,genre,nbrPersCharge){
+    this.salaireBrut=salaireBrut;
+    this.genre=genre;
+    this.nbrPersCharge=nbrPersCharge;
+    this.allocation=allocation;
+    this.bonus=bonus;
+}
+
+
+function calculer(){
+    var Salaire = document.getElementById("grossSalary").value;
+    var bonus_check = document.getElementById("additionBonus").checked;
+    var allocation_check = document.getElementById("additionAllowance").checked;
+    var type_gender = document.getElementById("gender").value;
+    var dependents = document.getElementById("dependents").value;
+
+
+    // Afficher la valeur
+    /*
+    console.log("salaire brut = "+Salaire);
+    console.log("bonus = "+bonus_check);
+    console.log("allocation = "+ allocation_check);
+    console.log("gender = "+ type_gender);
+    console.log("dependents = "+ dependents);
+    */
+    //affectations
+    var travailleur1=new travailleur(Salaire,bonus_check,allocation_check,type_gender,dependents)
+    console.log("salaire brut == "+travailleur1.salaireBrut)
+    console.log("genre == "+travailleur1.genre)
+    console.log("a chrage == "+travailleur1.nbrPersCharge)
+    console.log("alloc == "+travailleur1.allocation)
+    console.log("bonus == "+travailleur1.bonus)
+
+    //console.log("test2 === "+allocation_check)
+    let salaireBrut=travailleur1.salaireBrut;
+    let impotRevenu=travailleur1.salaireBrut*0.18;
+    let assurance=travailleur1.salaireBrut*0.07;
+    let RevCanada=travailleur1.salaireBrut*0.05;
+    let allocation=travailleur1.allocation;
+    //console.log("allocnumber2 = "+allocation)
+    let bonus=travailleur1.bonus;
+    var salaireInter=salaireBrut-impotRevenu-assurance-RevCanada;
+    if (allocation ==true ){
+        salaireInter += 150;
+        console.log("alloc true")
+    }
+    if (bonus==true){
+        salaireInter+= 100;
+        console.log("bonus true")
+    }
+    if(travailleur1.genre=="Femme" || travailleur1.genre=="F" ){
+        salaireInter-=salaireInter*0.02;
+    }
+    if (travailleur1.nbrPersCharge==3){
+        salaireInter-=salaireInter*0.01;
+    }
+    if (travailleur1.nbrPersCharge>=4){
+        salaireInter-=salaireInter*0.02;
+    }
+    let salaireFinale=salaireInter;
+
+    /*
+    document.write(impotRevenu+"\t");
+    document.write(assurance+"\t");
+    document.write(RevCanada+"\t");
+    document.write(salaireInter+"\t");
+    document.write("Salaire net = "+salaireFinale);
+    */
+    console.log("impot="+impotRevenu+"\t"+"\n");
+    console.log("assurance="+assurance+"\t"+"\n");
+    console.log("revcanada="+RevCanada+"\t"+"\n");
+    console.log("salire inter="+salaireInter+"\t"+"\n");
+    console.log("Salaire net = "+salaireFinale)+"\n";
+
+    var impot = document.getElementById("ImpotRev");
+    var assuranceb = document.getElementById("assurance");
+    var canada = document.getElementById("canada");
+    var bonusb = document.getElementById("bonus");
+    var salairenet = document.getElementById("salairenet");
+
+    impot.innerHTML="Impôt sur le revenu: "+impotRevenu;
+    assuranceb.innerHTML="Assurance employé : "+assurance;
+    canada.innerHTML="Régime de pensions du Canada: "+RevCanada;
+    bonusb.innerHTML="Suppléments:  "+bonus;
+    salairenet.innerHTML="Salaire net : "+salaireFinale;
+
+}
+
+
+
 
