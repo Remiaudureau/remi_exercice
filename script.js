@@ -259,6 +259,7 @@ function calculer(){
     console.log("gender = "+ type_gender);
     console.log("dependents = "+ dependents);
     */
+   
     //affectations
     var travailleur1=new travailleur(Salaire,bonus_check,allocation_check,type_gender,dependents)
     console.log("salaire brut == "+travailleur1.salaireBrut)
@@ -295,13 +296,6 @@ function calculer(){
     }
     let salaireFinale=salaireInter;
 
-    /*
-    document.write(impotRevenu+"\t");
-    document.write(assurance+"\t");
-    document.write(RevCanada+"\t");
-    document.write(salaireInter+"\t");
-    document.write("Salaire net = "+salaireFinale);
-    */
     console.log("impot="+impotRevenu+"\t"+"\n");
     console.log("assurance="+assurance+"\t"+"\n");
     console.log("revcanada="+RevCanada+"\t"+"\n");
